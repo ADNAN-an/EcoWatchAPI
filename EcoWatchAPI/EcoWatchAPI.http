@@ -1,0 +1,6 @@
+@EcoWatchAPI_HostAddress = http://localhost:5246
+
+GET {{EcoWatchAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
