@@ -14,9 +14,13 @@ namespace EcoWatchAPI.Models
         [ForeignKey("UserId")]
         public string UserId { get; set; }
 
+        [StringLength(1024)]
         public string Content { get; set; } = "";
 
         public string ImagePath { get; set; } = "";
+
+        [Display(Name = "Report Time")]
+        [DataType(DataType.DateTime)]
         public DateTime CreatedAt { get; set; }
 
     }

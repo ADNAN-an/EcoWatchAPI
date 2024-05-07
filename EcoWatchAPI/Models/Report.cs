@@ -5,9 +5,13 @@ namespace EcoWatchAPI.Models
 {
     public class Report
     {
+        [Key]
         public int Id { get; set; }
+
+        [Required(ErrorMessage = "User ID is required")]
         public string UserId { get; set; }
 
+        [StringLength(128)]
         [Required(ErrorMessage = "Title is required")]
         public string Title { get; set; } = "";
 
@@ -20,15 +24,19 @@ namespace EcoWatchAPI.Models
         [Required(ErrorMessage = "Localization is required")]
         public string Localization { get; set; } = "";
 
+        [StringLength(1024)]
         [Required(ErrorMessage = "Description is required")]
         public string Description { get; set; } = "";
 
+
+        [Display(Name = "Image ")]
         public string Image { get; set; } = "";
 
-        // Property to indicate if the report is valid or not
+        
         public bool IsValid { get; set; } = false;
 
-        // Property to store the time of the report
+        [Display(Name = "Report Time")]
+        [DataType(DataType.DateTime)]
         public DateTime ReportTime { get; set; } = DateTime.Now;
 
         public enum TypeOfIncidents
